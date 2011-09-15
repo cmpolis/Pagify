@@ -21,7 +21,14 @@
 
     this.switchPage = function(page) {
       page = page || window.location.hash.replace('#','');
-      $(self).load(page+'.html');
+      
+      if(self.settings.cache) {
+      
+      } else {
+        $.get(page+'.html', function(content) {
+          $(self).hide().html(content)[self.settings.animation]();
+        }, 'text');      
+      }
     }
 
     // Respond to hash changes
