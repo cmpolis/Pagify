@@ -2,7 +2,20 @@
 
 A jQuery plugin for effortlessly creating single page web sites.
 
+### Features
+
+- __Simple__ - include pagify.js, create a div, make one jQuery call and you're done!
+- __Lightweight__ - pagify.js is far less than 100 lines of code, well commented and easy to understand and extend!
+- __Flexible__ - Get started by only specifying a list of pages or customize animations, default pages and caching!
+- __Fast__ - Load all pages upfront or load on the fly; a simple $.get() is used to get content with minimal proccessing!
+- __Clean__ - Replace long HTML files broken up into sections and verbose JS to do the simple task of switching content!
+- __Couldn't find an adjective...__ - Uses only Javascript and HTML so it can be uploaded like any other static site!
+
 ## Usage
+
+_Checkout the simple demo to see how it works, or..._
+
+### Create a _container_ page:
 
 Load Pagify and jQuery:
 
@@ -11,7 +24,13 @@ Load Pagify and jQuery:
 <script src="pagify.js" type="text/javascript"></script>
 ```
 
-Attach a div that will hold the content of each page by listing pages and options:
+Create a div that will contain page content:
+
+``` html
+<div id='page_holder' />
+```
+
+Call __pagify__ on the aforementioned div and pass in options. _The only required option is `pages`._
 
 ``` js
 $('#page_holder').pagify({
@@ -20,23 +39,33 @@ $('#page_holder').pagify({
 });
 ```
 
-Show other pages by linking to hashes:
+Link to other pages by linking to hashes of their page names:
 
 ``` html
 <a href='#contact'>Contact</a>
+<a href='#about'>About</a>
+...
 ```
+### Write other pages
 
-_Note:_ Page content should be found in _pagename_.html and pagify will respond to #_pagename_
+Create content pages in the same directory as the container as `[page_name].html`
+
+_i.e. about.html_
+
+``` html
+<h1>About us</h1>
+<p>This is an about page!</p>
+```
 
 ## Options
 
-`pages` - an array of page names
+`pages` - an array of page names. _Required._
 
-`default` - the page that is loaded by default or 'null' for an empty div
+`default` - the page that is loaded by default or `null` for an empty div. _`null` by default._
 
-`animation` - the jQuery animation that is used to show pages, i.e. `fadeIn`, `show`, `slideUp`, `slideDown`. __`show` is used by default.__
+`animation` - the jQuery animation that is used to show pages, i.e. `fadeIn`, `show`, `slideUp`, `slideDown`. _`show` by default._
 
-`cache` - true or false. Determines if all pages are loaded upfront or not. __false by default.__
+`cache` - true or false. Determines if all pages are loaded upfront or not. _false by default._
 
 ## Etc...
 
