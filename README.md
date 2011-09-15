@@ -14,7 +14,7 @@ Load Pagify and jQuery:
 Attach a div that will hold the content of each page by listing pages and options:
 
 ``` js
-$('#page_holder).pagify({
+$('#page_holder').pagify({
     pages: ['home', 'about', 'contact'],
     default: 'home' // The name of a page or 'empty'
 });
