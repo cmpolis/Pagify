@@ -1,0 +1,27 @@
+<ul>
+  <li>
+    Load Pagify and jQuery:
+    <pre>
+      &lt;script src="jquery.min.js" type="text/javascript"&gt;&lt;/script&gt;
+      &lt;script src="pagify.js" type="text/javascript"&gt;&lt;/script&gt;
+    </pre>
+  </li>
+
+  <li>
+    Attach a div that will hold the content of each page by listing pages and options:
+    <pre>
+      $('#page_holder').pagify({
+          pages: ['home', 'about', 'contact'],
+          default: 'home' // The name of a page or 'empty'
+      });
+    </pre>
+  </li>
+
+  <li>
+    Show other pages by linking to hashes:
+    <pre>
+      &lt;a href='#contact'&gt;Contact&lt;/a&gt;
+    </pre>
+  </li>
+
+</ul>
