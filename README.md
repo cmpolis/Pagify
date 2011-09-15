@@ -16,7 +16,7 @@ Attach a div that will hold the content of each page by listing pages and option
 ``` js
 $('#page_holder').pagify({
     pages: ['home', 'about', 'contact'],
-    default: 'home' // The name of a page or 'empty'
+    default: 'home' // The name of a page or null for an empty div
 });
 ```
 
@@ -32,7 +32,7 @@ _Note:_ Page content should be found in _pagename_.html and pagify will respond 
 
 `pages` - an array of page names
 
-`default` - the page that is loaded by default or 'empty' for an empty div
+`default` - the page that is loaded by default or 'null' for an empty div
 
 `animation` - the jQuery animation that is used to show pages, i.e. `fadeIn`, `show`, `slideUp`, `slideDown`. __`show` is used by default.__
 
