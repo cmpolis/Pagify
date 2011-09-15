@@ -6,7 +6,7 @@ A jQuery plugin for effortlessly creating single page web sites.
 
 Load Pagify and jQuery:
 
-``` js
+``` html
 <script src="jquery.min.js" type="text/javascript"></script>
 <script src="pagify.js" type="text/javascript"></script>
 ```
