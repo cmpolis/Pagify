@@ -8,9 +8,9 @@
  */
 
 (function($) {
-  $.fn.pagify = function(options) { 
+  $.fn.pagify = function(options) {
     var self = this;
-  
+
     this.defaults = {
       pages: [],
       default: null,
@@ -23,19 +23,19 @@
     var runAfterLoading = function() {
       self.switchPage = function(page) {
         page = page || window.location.hash.replace('#','');
-     
-        // Load page content from cache 
+
+        // Load page content from cache
         if(self.settings.cache) {
           $(self).hide().html(self.pages[page])[self.settings.animation]();
- 
+
         // Fetch page content
         } else {
           $.get(page+'.html', function(content) {
             $(self).hide().html(content)[self.settings.animation]();
-          }, 'text');      
+          }, 'text');
         }
       }
-    
+
       // Respond to hash changes
       $(window).bind('hashchange', function() {
         self.switchPage();
@@ -60,5 +60,5 @@
       });
     } else runAfterLoading();
   };
-  
+
 })(jQuery);
