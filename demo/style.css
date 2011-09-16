@@ -1,10 +1,12 @@
 body {
-  background-color: #355664;
-  color: #FCFCFC;
-  font-family: Arial,Helvetica,sans-serif;
+  color: #585858;
+  background-color: #fff;
+  font-family:Tahoma,Century gothic, Arial,Tahoma,sans-serif;
 }
 h1 {
   font-size: 40px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #CCC;
 }
 h1 small {
   font-size: 20px;
@@ -12,8 +14,11 @@ h1 small {
 nav {
   font-size: 20px;
 }
+nav a {
+  margin-right: 20px;
+}
 a{
-  color: #FCFCFC;
+  color: #C30C0C;
   text-decoration: none;
 }
 a:hover {
