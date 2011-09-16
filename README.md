@@ -1,6 +1,6 @@
 # Pagify.js
 
-A jQuery plugin for effortlessly creating single page web sites.
+A jQuery plugin for effortlessly creating single page web sites. [Demo](http://cmpolis.github.com/Pagify)
 
 ### Features
 
