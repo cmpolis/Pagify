@@ -38,6 +38,12 @@ a:hover {
   margin: 0 auto;
   width: 960px;
 }
+html {
+height: 100%; 
+margin-bottom: 1px; 
+overflow-y: scroll;
+}
+
 #options {
   list-style: none;
   padding-left: 0px;
