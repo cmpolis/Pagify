@@ -62,3 +62,17 @@
   };
 
 })(jQuery);
+
+// hashchange event polyfill
+(function(hash){
+  if(!"onhashchange" in window){
+    hash=location.hash;
+    setTimeout(function tick(){
+      if(location.hash!=hash){
+        $(window).trigger("hashchange");
+        hash=location.hash;
+      }
+      setTimeout(tick,100)
+    },100)
+  }
+})();
