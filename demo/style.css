@@ -1,0 +1,25 @@
+body {
+  background-color: #355664;
+  color: #FCFCFC;
+  font-family: Arial,Helvetica,sans-serif;
+}
+h1 {
+  font-size: 40px;
+}
+h1 small {
+  font-size: 20px;
+}
+nav {
+  font-size: 20px;
+}
+a{
+  color: #FCFCFC;
+  text-decoration: none;
+}
+a:hover {
+  color: #333;
+}
+#container {
+  margin: 0 auto;
+  width: 960px;
+}
