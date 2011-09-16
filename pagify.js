@@ -5,15 +5,17 @@
  * http://www.opensource.org/licenses/mit-license.php
  *
  * Copyright (c) 2011, Chris Polis
- */
+*/
 
 (function($) {
   $.fn.pagify = function(options) {
+    var rscript = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
     var self = this;
 
     this.defaults = {
       pages: [],
       default: null,
+      selector: null,
       animation: 'show',
       cache: false
     };
@@ -28,11 +30,19 @@
         if(self.settings.cache) {
           $(self).hide().html(self.pages[page])[self.settings.animation]();
 
-        // Fetch page content
+          // Fetch page content
         } else {
-          $.get(page+'.html', function(content) {
-            $(self).hide().html(content)[self.settings.animation]();
-          }, 'text');
+          $.ajax({
+            url: page + '.html',
+            dataType: 'html',
+            success: function (content) {
+              $(self).hide().html(
+                                  self.settings.selector ?
+                                  $("<div>").append(content.replace(rscript, "")).find(self.settings.selector) :
+                                  content
+                                 )[self.settings.animation]();
+            }
+          });
         }
       }
 
@@ -53,7 +63,9 @@
       var pageLoads = self.settings.pages.length;
       $.each(self.settings.pages, function(ndx, page) {
         $.get(page+'.html', function(content) {
-          self.pages[page] = content;
+          self.pages[page] = self.settings.selector ?
+                             $("<div>").append(content.replace(rscript, "")).find(self.settings.selector) :
+                             content;
           pageLoads--;
           if(!pageLoads) runAfterLoading();
         }, 'text');
