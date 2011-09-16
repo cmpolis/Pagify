@@ -1,0 +1,41 @@
+<br />
+View the source of this demo <a href="https://github.com/cmpolis/Pagify/tree/master/demo">here</a>. Or...
+
+<h3>Create a <em>container</em> page:</h3> 
+ 
+<p>Load Pagify and jQuery:</p> 
+ 
+<pre>&lt;script src="jquery.min.js" type="text/javascript"&gt;&lt;/script&gt;
+&lt;script src="pagify.js" type="text/javascript"&gt;&lt;/script&gt; 
+</pre>
+ 
+<p>Create a div that will contain page content:</p> 
+ 
+<pre>&lt;div id='page_holder' /&gt;</pre> 
+
+<p>Call <strong>pagify</strong> on the aforementioned div and pass in options. <em>The only required option is <code>pages</code>.</em></p> 
+ 
+<pre>$('#page_holder').pagify({ 
+    pages: ['home', 'about', 'contact'], 
+    default: 'home' // The name of a page or null for an empty div 
+}); 
+</pre> 
+ 
+ 
+<p>Link to other pages by linking to hashes of their page names:</p> 
+ 
+<pre>&lt;a href='#contact'&gt;Contact&lt;/a&gt; 
+&lt;a href='#about'&gt;About&lt;/a&gt; 
+...
+</pre> 
+ 
+ 
+<h3>Write other pages</h3> 
+ 
+<p>Create content pages in the same directory as the container as <code>[page_name].html</code></p> 
+ 
+<p><em>i.e. about.html</em></p> 
+ 
+<pre>&lt;h1&gt;About us&lt;/h1&gt; 
+&lt;p&gt;This is an about page!&lt;/p&gt; 
+</pre> 
