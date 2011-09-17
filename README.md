@@ -67,6 +67,8 @@ _i.e. about.html_
 
 `cache` - true or false. Determines if all pages are loaded upfront or not. _false by default._
 
+`onChange` - a function that takes the page name as a parameter and is executed when the page changes. _empty function by default._
+
 ## Etc...
 
 **Created by [@ChrisPolis](http://twitter.com/ChrisPolis)**
