@@ -15,6 +15,7 @@
       pages: [],
       default: null,
       animation: 'show',
+      onChange: function (page) {},
       cache: false
     };
     this.settings = $.extend({}, this.defaults, options);
@@ -27,11 +28,13 @@
         // Load page content from cache 
         if(self.settings.cache) {
           $(self).hide().html(self.pages[page])[self.settings.animation]();
+          self.settings.onChange(page);
  
         // Fetch page content
         } else {
           $.get(page+'.html', function(content) {
             $(self).hide().html(content)[self.settings.animation]();
+            self.settings.onChange(page);
           }, 'text');      
         }
       }
