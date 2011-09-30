@@ -13,7 +13,7 @@
   
     this.defaults = {
       pages: [],
-      default: null,
+      'default': null,
       animation: 'show',
       onChange: function (page) {},
       cache: false
@@ -26,7 +26,7 @@
 
         // Page is selected from: passed in value, window.location, default
         if(!page) {
-          page = window.location.hash.replace('#','') || self.settings.default;
+          page = window.location.hash.replace('#','') || self.settings['default'];
         }
          
         // Load page content from cache 
@@ -50,7 +50,7 @@
 
       // Load initial page - current hash or default page
       if(window.location.hash) self.switchPage();
-      else if(self.settings.default) self.switchPage(self.settings.default);
+      else if(self.settings['default']) self.switchPage(self.settings['default']);
 
     };
 
@@ -69,3 +69,5 @@
   };
   
 })(jQuery);
+
+
