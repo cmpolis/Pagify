@@ -13,7 +13,7 @@
   
     this.defaults = {
       pages: [],
-      default: null,
+      'default': null,
       animation: 'show',
       onChange: function (page) {},
       cache: false
