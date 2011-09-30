@@ -35,7 +35,7 @@ Call __pagify__ on the aforementioned div and pass in options. _The only require
 ``` js
 $('#page_holder').pagify({
     pages: ['home', 'about', 'contact'],
-    default: 'home' // The name of a page or null for an empty div
+    'default': 'home' // The name of a page or null for an empty div
 });
 ```
 
