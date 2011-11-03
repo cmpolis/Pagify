@@ -61,13 +61,19 @@ _i.e. about.html_
 
 `pages` - an array of page names. _Required._
 
-`default` - the page that is loaded by default or `null` for an empty div. _`null` by default._
+`default` - the page that is loaded on startup.  _null is default (for an empty div)._
 
-`animation` - the jQuery animation that is used to show pages, i.e. `fadeIn`, `show`, `slideUp`, `slideDown`. _`show` by default._
+`animation` - the jQuery animation that is used to show pages, i.e. `fadeIn`, `show`, `slideUp`, `slideDown`. _`show` is default._
 
-`cache` - true or false. Determines if all pages are loaded upfront or not. _false by default._
+`animationSpeed` - the speed of the animation, i.e. `fast`, `slow`, 1000. _'normal' is default._
 
-`onChange` - a function that takes the page name as a parameter and is executed when the page changes. _empty function by default._
+`animationOut` - the jQuery animation that is used to hide pages, i.e. `fadeOut`, `hide`, `slideUp`, `slideDown`. _`hide` is default._
+
+`animationOutSpeed` - the speed of the animationOut, i.e. `fast`, `slow`, 1000. _0 is default._
+
+`cache` - true or false. Determines if all pages are loaded upfront or not. _false is default._
+
+`onChange` - a function that takes the page name as a parameter and is executed when the page changes. _empty function is default._
 
 ## Etc...
 
