@@ -58,7 +58,7 @@
 				for(var i = 0;i<pagesArray.length;i++) {
 					if( comparisonHash === pagesArray[i] ) {
 						self.SwitchPage();
-						return false;
+						break;
 					}
 				}
       });
@@ -69,7 +69,6 @@
     };
 
     // Cache pages
-		// Added support for .php extensions
     if(self.settings.cache) {
       self.pages = {};
       var pageLoads = self.settings.pages.length;
