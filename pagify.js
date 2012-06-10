@@ -50,8 +50,17 @@
       }
 
       // Respond to hash changes
+			// Adds support for additional hash parameters in the URL, like a lightbox
       $(window).bind('hashchange', function() {
-        self.switchPage();
+				var comparisonHash = location.hash.split('#')[1];
+				var pagesArray = self.settings.pages;
+				
+				for(var i = 0;i<pagesArray.length;i++) {
+					if( comparisonHash === pagesArray[i] ) {
+						self.SwitchPage();
+						break;
+					}
+				}
       });
 
       // Load initial page - current hash or default page
@@ -63,8 +72,8 @@
     if(self.settings.cache) {
       self.pages = {};
       var pageLoads = self.settings.pages.length;
-      $.each(self.settings.pages, function(ndx, page) {
-        $.get(page+'.html', function(content) {
+      $.each(self.settings.pages, function(ndx, page) {				
+        $.get(page + 'html', function(content) {
           self.pages[page] = content;
           pageLoads--;
           //alert(pageLoads);
@@ -74,5 +83,5 @@
     } 
     else runAfterLoading();
   };
-
+	
 })(jQuery);
