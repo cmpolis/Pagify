@@ -40,26 +40,22 @@
         }
         else {
           // Fetch page content
-          //
-          // Pretty URL support for Pagify.js
-          //
-          // Example of a pretty url: /blog/2012/hello-world/
-          // This patch help Pagify load /blog/2012/hello-world/index.html
-          // instead of /blog/2012/hello-world.html
-          // Normal URL: no ending with /
-          // Pretty URL: ending with /
+          // pcao patch: also load pretty url, e.g. /a/b/index.html for /a/b/
           if(page.slice(-1) == '/'){
               page_name = page + 'index.html';
           }
-          else{ // Normal URL
+          else{
               page_name = page + '.html';
+              // Set document title based on page name
+              // Make first word of page to upper case
+              document.title =  page.slice(0,1).toUpperCase() + page.slice(1);
           }
           $.get(page_name, function(content) {
           // end of patch
             $(self)[self.settings.animationOut](self.settings.animationOutSpeed, function() {
               $(self).html(content)[self.settings.animation](self.settings.animationSpeed);
             })
-            self.settings.onChange(page);
+            self.settings.onChange(page_name);
           }, 'text');
         }
       }
