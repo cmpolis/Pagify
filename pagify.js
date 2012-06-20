@@ -40,7 +40,22 @@
         }
         else {
           // Fetch page content
-          $.get(page+'.html', function(content) {
+          //
+          // Pretty URL support for Pagify.js
+          //
+          // Example of a pretty url: /blog/2012/hello-world/
+          // This patch help Pagify load /blog/2012/hello-world/index.html
+          // instead of /blog/2012/hello-world.html
+          // Normal URL: no ending with /
+          // Pretty URL: ending with /
+          if(page.slice(-1) == '/'){
+              page_name = page + 'index.html';
+          }
+          else{ // Normal URL
+              page_name = page + '.html';
+          }
+          $.get(page_name, function(content) {
+          // end of patch
             $(self)[self.settings.animationOut](self.settings.animationOutSpeed, function() {
               $(self).html(content)[self.settings.animation](self.settings.animationSpeed);
             })
