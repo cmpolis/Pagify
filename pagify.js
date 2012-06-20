@@ -40,11 +40,22 @@
         }
         else {
           // Fetch page content
-          $.get(page+'.html', function(content) {
+          // pcao patch: also load pretty url, e.g. /a/b/index.html for /a/b/
+          if(page.slice(-1) == '/'){
+              page_name = page + 'index.html';
+          }
+          else{
+              page_name = page + '.html';
+              // Set document title based on page name
+              // Make first word of page to upper case
+              document.title =  page.slice(0,1).toUpperCase() + page.slice(1);
+          }
+          $.get(page_name, function(content) {
+          // end of patch
             $(self)[self.settings.animationOut](self.settings.animationOutSpeed, function() {
               $(self).html(content)[self.settings.animation](self.settings.animationSpeed);
             })
-            self.settings.onChange(page);
+            self.settings.onChange(page_name);
           }, 'text');
         }
       }
