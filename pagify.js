@@ -22,6 +22,9 @@
       'cache': false
     };
     this.settings = $.extend({}, this.defaults, options);
+    if (self.settings.cache) {
+      self.pages = {};
+    }
 
     // Run after loading if caching, otherwise run immediately
     var runAfterLoading = function() {
@@ -32,22 +35,35 @@
         }
 
         if(self.settings.cache) {
-          // Load page content from cache
-          $(self)[self.settings.animationOut](self.settings.animationOutSpeed, function() {
-            $(self).html(self.pages[page])[self.settings.animation](self.settings.animationSpeed);
-          })
-          self.settings.onChange(page);
+          if (self.pages[page] == undefined) {
+            // Fetch and cache content
+            fetchPageContentAndShow(page);
+          }
+          else {
+            // Load page content from cache
+            $(self)[self.settings.animationOut](self.settings.animationOutSpeed, function() {
+              $(self).html(self.pages[page])[self.settings.animation](self.settings.animationSpeed);
+            })
+            self.settings.onChange(page);
+          }
         }
         else {
           // Fetch page content
-          $.get(page+'.html', function(content) {
-            $(self)[self.settings.animationOut](self.settings.animationOutSpeed, function() {
-              $(self).html(content)[self.settings.animation](self.settings.animationSpeed);
-            })
-            self.settings.onChange(page);
-          }, 'text');
+          fetchPageContentAndShow(page);
         }
       }
+
+      var fetchPageContentAndShow = function(page) {
+        $.get(page+'.html', function(content) {
+          $(self)[self.settings.animationOut](self.settings.animationOutSpeed, function() {
+            $(self).html(content)[self.settings.animation](self.settings.animationSpeed);
+          })
+          self.settings.onChange(page);
+          if (self.settings.cache) {
+            self.pages[page] =  content;
+          }
+        }, 'text');
+      };
 
       // Respond to hash changes
       $(window).bind('hashchange', function() {
@@ -59,20 +75,8 @@
       else if(self.settings['default']) self.switchPage(self.settings['default']);
     };
 
-    // Cache pages
-    if(self.settings.cache) {
-      self.pages = {};
-      var pageLoads = self.settings.pages.length;
-      $.each(self.settings.pages, function(ndx, page) {
-        $.get(page+'.html', function(content) {
-          self.pages[page] = content;
-          pageLoads--;
-          //alert(pageLoads);
-          if(!pageLoads) runAfterLoading();
-        }, 'text');
-      });
-    } 
-    else runAfterLoading();
+    // loadPage
+    runAfterLoading();
   };
 
 })(jQuery);
