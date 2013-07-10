@@ -77,7 +77,7 @@ _i.e. about.html_
 
 ## Etc...
 
-**Created by [@ChrisPolis](http://twitter.com/ChrisPolis)**
+**Created by [@ChrisPolis](http://twitter.com/ChrisPolis), [blog](http://bytemuse.com)**
 
 [MIT License](http://www.opensource.org/licenses/mit-license.php)
 
