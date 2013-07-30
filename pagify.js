@@ -19,7 +19,8 @@
       'animationOut': 'hide',
       'animationOutSpeed': 0,
       'onChange': function (page) {},
-      'cache': false
+      'cache': false,
+      'basePagePath': ''
     };
     this.settings = $.extend({}, this.defaults, options);
 
@@ -40,7 +41,7 @@
         }
         else {
           // Fetch page content
-          $.get(page+'.html', function(content) {
+          $.get(self.settings.basePagePath+page+'.html', function(content) {
             $(self)[self.settings.animationOut](self.settings.animationOutSpeed, function() {
               $(self).html(content)[self.settings.animation](self.settings.animationSpeed);
             })
@@ -59,12 +60,15 @@
       else if(self.settings['default']) self.switchPage(self.settings['default']);
     };
 
+    // Clean our base page path. Ensure it has a trailing slash.
+    if (self.settings.basePagePath.indexOf('/', self.settings.basePagePath.length - 2) === -1) self.settings.basePagePath += '/';
+
     // Cache pages
     if(self.settings.cache) {
       self.pages = {};
       var pageLoads = self.settings.pages.length;
       $.each(self.settings.pages, function(ndx, page) {
-        $.get(page+'.html', function(content) {
+        $.get(self.settings.basePagePath+page+'.html', function(content) {
           self.pages[page] = content;
           pageLoads--;
           //alert(pageLoads);
