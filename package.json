@@ -1,6 +1,6 @@
 {
   "name": "jquery-pagify",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A jQuery plugin for effortlessly creating single page web sites.",
   "main": "jquery.pagify.js",
   "scripts": {

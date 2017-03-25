@@ -21,7 +21,7 @@ Load Pagify and jQuery:
 
 ``` html
 <script src="jquery.min.js" type="text/javascript"></script>
-<script src="pagify.js" type="text/javascript"></script>
+<script src="jquery.pagify.js" type="text/javascript"></script>
 ```
 
 Create a div that will contain page content:
