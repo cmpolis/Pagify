@@ -1,0 +1,26 @@
+{
+  "name": "jquery-pagify",
+  "version": "1.0.1",
+  "description": "A jQuery plugin for effortlessly creating single page web sites.",
+  "main": "jquery.pagify.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmpolis/Pagify.git"
+  },
+  "keywords": [
+    "jquery",
+    "one-page"
+  ],
+  "author": "Chris Polis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cmpolis/Pagify/issues"
+  },
+  "homepage": "https://github.com/cmpolis/Pagify#readme",
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
